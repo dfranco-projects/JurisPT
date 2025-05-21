@@ -13,13 +13,42 @@
 ## 🗂️ Project Structure
 ```bash
 JurisPT/
-├── data/              # Raw, cleaned, and metadata law texts
-├── scripts/           # Scraping, preprocessing, chunking, ingestion
-├── retriever/         # Embedding and retrieval logic
-├── rag_pipeline/      # End-to-end RAG orchestration
-├── app/               # UI or CLI interface (FastAPI, Streamlit, etc)
-├── voice/             # Speech recognition (Whisper, Vosk, etc)
-├── tests/             # Unit and integration tests
+│
+├── data/                        # Raw + processed law text files
+│   ├── raw/                     # Raw HTML or scraped data
+│   ├── clean/                   # Cleaned text chunks, paragraphs
+│   └── metadata/                # Metadata about laws, e.g. law_dict.json
+│       └── laws_metadata.json
+│
+├── scripts/                     # One-off scripts for scraping, cleaning, etc
+│   ├── scrape_dre.py            # Scrape Diário da República using law_id
+│   ├── clean_laws.py            # Strip HTML, normalize structure
+│   ├── chunk_laws.py            # Split laws into chunks for RAG
+│   └── ingest_to_vectorstore.py # Index into FAISS, ChromaDB, etc
+│
+├── retriever/                   # Vector store and retriever logic
+│   ├── embedder.py              # SentenceTransformer or OpenAI embed logic
+│   ├── vectorstore.py           # Vector DB handling
+│   └── retriever.py             # Similarity + reranking logic
+│
+├── app/                         # UI or API interface
+│   ├── main.py                  # CLI or Streamlit/FastAPI app
+│   └── prompts/                 # Prompt templates for QA/generation
+│       └── qa_prompt.txt
+│
+├── voice/                       # Optional: voice input → text interface
+│   ├── speech_to_text.py        # Whisper or Vosk
+│   └── mic_input.py             # Mic streaming logic
+│
+├── rag_pipeline/               # Full orchestration
+│   ├── load.py                  # Load and preprocess sources
+│   ├── build_index.py           # Embed + store docs
+│   ├── query.py                 # RAG inference logic
+│
+├── tests/                       # Unit and integration tests
+│
+├── requirements.txt             # Python deps
+└── README.md                    # Project intro
 ```
 
 ## 🚀 Getting Started
