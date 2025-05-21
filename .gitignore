@@ -1,0 +1,35 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.venv/
+env/
+venv/
+.env
+*.log
+
+# macOS
+.DS_Store
+
+# Pytest
+*.cover
+.coveragerc
+*.hypothesis/
+.coverage
+*.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# FAISS/Chroma/LLM Artifacts
+index/
+vector_store/
+
