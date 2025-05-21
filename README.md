@@ -1,4 +1,4 @@
-# JurisPT
+# 🇵🇹 JurisPT
 
 **JurisPT** is your voice-to-text legal assistant built for Portuguese residents to interact with everyday law - housing, labor rights, data protection, complaints, and more. It is built around Retrieval-Augmented Generation (RAG), using real legal documents from official Portuguese government sources.
 
