@@ -53,11 +53,13 @@ JurisPT/
 
 ## 🚀 Getting Started
 ```bash
-git clone git@github.com:yourusername/JurisPT.git
+git clone git@github.com:dfranco-projects/JurisPT.git
 cd JurisPT
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+playwright install
+
 ```
 
 ## ⚠️ Environment Variables
