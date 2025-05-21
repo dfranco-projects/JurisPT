@@ -40,7 +40,7 @@ JurisPT/
 │   ├── speech_to_text.py        # Whisper or Vosk
 │   └── mic_input.py             # Mic streaming logic
 │
-├── rag_pipeline/               # Full orchestration
+├── rag_pipeline/                # Full orchestration
 │   ├── load.py                  # Load and preprocess sources
 │   ├── build_index.py           # Embed + store docs
 │   ├── query.py                 # RAG inference logic
