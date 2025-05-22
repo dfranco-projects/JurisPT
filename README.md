@@ -59,10 +59,10 @@ JurisPT/
 │   │
 │   └── config.py               # central paths, constants, and ENV vars
 │
-├── data/                       # all data artifacts
-│   ├── raw/                    # raw HTML scraped from sites
-│   ├── clean/                  # normalized and chunked text
-│   └── metadata/               # metadata about each law
+├── corpus/                     # legal text and data from diário da república
+│   ├── raw/                    # raw scraped text per law
+│   ├── clean/                  # cleaned and chunked text for embedding
+│   └── metadata/               # core index of laws to scrape
 │
 ├── tests/                      # unit + integration tests
 │   ├── test_crawler.py
