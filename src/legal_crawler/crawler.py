@@ -1,5 +1,4 @@
-import re
-import json
+from utils import normalize_filename 
 from playwright.sync_api import Playwright, sync_playwright
 
 class LawCrawler:
@@ -27,34 +26,68 @@ class LawCrawler:
         self.browser.close()
 
     def fetch_law_doc(self, law_id: str) -> str:
-            """
-            Fetches the law document from the website.
+        """
+        Fetches the law document from the website.
 
-            Args:
-                law_id (str): ID of the law to fetch.
+        Args:
+            law_id (str): ID of the law to fetch.
 
-            Returns:        
-                str: content of the law document.
-            """
-            page = self.page
+        Returns:        
+            str: content of the law document.
+        """
+        page = self.page
 
-            # open the page
-            page.goto(self.url)
+        # open the page
+        page.goto(self.url)
 
-            # search
-            page.get_by_placeholder("O que procura?").fill(law_id)
+        # search
+        page.get_by_placeholder("O que procura?").fill(law_id)
 
-            # wait for popup and open it
-            page.locator("#b2-b2-b3-l3-269_0-ListItem2").click()
+        # wait for popup and open it
+        page.locator("#b2-b2-b3-l3-269_0-ListItem2").click()
 
-            # wait for the content to load (5 sec)
-            page.wait_for_selector(".texto.int-links", timeout=5_000)
+        # wait for the content to load (5 sec)
+        page.wait_for_selector(".texto.int-links", timeout=5_000)
 
-            # get law content
-            content = page.locator(".texto.int-links").inner_text()
+        # get law content
+        content = page.locator(".texto.int-links").inner_text()
+
+        return content
+    
+    def save_law_doc(self, law_id: str, content: str) -> Path:
+        """
+        Saves law content to a normalized filename inside the raw folder.
+
+        Args:
+            law_id (str): The law ID used to name the file.
+            content (str): The raw text content to save.
+
+        Returns:
+            Path: The path to the saved file.
+        """
+        filename = normalize_filename(law_id)
+        file_path = self.raw_folder / filename
+
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(content)
+
+    def run_test_scraper(self, law_id) -> str:
+        """
+        Test the test scraper ability to fetch the law document.
+
+        Args:
+            law_id (str): ID of the law to fetch.
+            
+        Returns:
+            str: content of the law document.
+        """
+        with sync_playwright() as playwright:
+            self.setup(playwright)
+            content = self.fetch_law_doc(law_id)
+            self.close()
 
             return content
-    
+
     def run_scraper(self, law_ids: list[str]) -> list[dict]:
         """
         Runs the scraper for the law IDs on the metadata file.
@@ -71,18 +104,7 @@ class LawCrawler:
             self.close()
             return results
     
-    def run_test_scraper(self, law_id) -> None:
-        """
-        Test the test scraper ability to fetch the law document.
 
-        Args:
-            law_id (str): ID of the law to fetch.
-        """
-        with sync_playwright() as playwright:
-            self.setup(playwright)
-            content = self.fetch_law_doc(law_id)
-            self.close()
-            return content
         
 if __name__ == "__main__":
     pass
