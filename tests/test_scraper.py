@@ -1,5 +1,4 @@
-import pytest
-from scraper import LawScraper
+from src.law_crawler.crawler import LawScraper
 
 def test_law_scraper_output() -> None:
     """

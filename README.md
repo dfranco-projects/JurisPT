@@ -1,77 +1,147 @@
 # 🇵🇹 JurisPT
 
-**JurisPT** is your voice-to-text legal assistant built for Portuguese residents to interact with everyday law - housing, labor rights, data protection, complaints, and more. It is built around Retrieval-Augmented Generation (RAG), using real legal documents from official Portuguese government sources.
+**JurisPT** is an open-source voice-to-text legal assistant built for residents of Portugal to query and understand laws affecting their daily lives — from housing rights to labor laws and data privacy. At its core, it leverages a **Retrieval-Augmented Generation (RAG)** architecture powered by real legislation from official government sources.
+
+Built for transparency, customization, and accessibility.
+
+---
 
 ## 🧠 Features
-- Web scraping from Diário da República (Portugal's official gazette)
-- Multilingual: works in both **Portuguese** and **English**
-- Cleaned + chunked legal texts stored in a vector database
-- Voice-to-text interface (optional)
-- Query handling with retrieval + language model (RAG)
-- Modular pipeline and retraining support
 
-## 🗂️ Project Structure
+- 🔍 **Web scraping** of real legal documents from [Diário da República](https://dre.pt/)
+- 🌍 **Multilingual support** (Portuguese 🇵🇹 + English 🇬🇧)
+- 🧹 **Text preprocessing** — clean, normalize, and chunk legal text
+- 🧠 **Semantic search** using vector embeddings
+- 🗣️ **Voice-enabled** search via Whisper or Vosk
+- 🧩 **Modular and hackable** — easily plug in more laws or swap models
+- 🔁 **Incremental updates** — scrape and re-index new laws on demand
+- 🐍 **Pythonic & production-ready** — built with maintainability in mind
+
+---
+
+## ⚙️ Why JurisPT?
+
+- **Fully open-source**: inspect every layer, from crawling to UI
+- **Customizable**: extend by adding new documents or switching vector DBs
+- **No black box**: built entirely with transparent and modular components
+- **Retrain? Not exactly.** Instead of retraining the model, we reindex updated documents using your embedder of choice — keeping it fast and efficient.
+
+---
+
+## 📁 Project Structure
+
 ```bash
 JurisPT/
 │
-├── data/                        # Raw + processed law text files
-│   ├── raw/                     # Raw HTML or scraped data
-│   ├── clean/                   # Cleaned text chunks, paragraphs
-│   └── metadata/                # Metadata about laws, e.g. law_dict.json
-│       └── laws_metadata.json
+├── src/                         # root package
+│   ├── legal_crawler/          # fetch laws from public sources
+│   │   └── crawler.py
+│   │
+│   ├── processing/             # clean, normalize, chunk legal text
+│   │   ├── cleaner.py
+│   │   └── chunker.py
+│   │
+│   ├── vectorization/          # embed, store, and retrieve chunks
+│   │   ├── embedder.py
+│   │   ├── vectorstore.py
+│   │   └── retriever.py
+│   │
+│   ├── ingestion/              # pipeline glue (scrape → clean → index)
+│   │   ├── loader.py
+│   │   └── pipeline.py
+│   │
+│   ├── prompts/                # prompt templates for QA
+│   │   └── qa_prompt.txt
+│   │
+│   ├── api/                    # streamlit-based UI and logic
+│   │   ├── main.py
+│   │   └── ui_helpers.py
+│   │
+│   └── config.py               # central paths, constants, and ENV vars
 │
-├── scripts/                     # One-off scripts for scraping, cleaning, etc
-│   ├── scrape_dre.py            # Scrape Diário da República using law_id
-│   ├── clean_laws.py            # Strip HTML, normalize structure
-│   ├── chunk_laws.py            # Split laws into chunks for RAG
-│   └── ingest_to_vectorstore.py # Index into FAISS, ChromaDB, etc
+├── data/                       # all data artifacts
+│   ├── raw/                    # raw HTML scraped from sites
+│   ├── clean/                  # normalized and chunked text
+│   └── metadata/               # metadata about each law
 │
-├── retriever/                   # Vector store and retriever logic
-│   ├── embedder.py              # SentenceTransformer or OpenAI embed logic
-│   ├── vectorstore.py           # Vector DB handling
-│   └── retriever.py             # Similarity + reranking logic
+├── tests/                      # unit + integration tests
+│   ├── test_crawler.py
+│   ├── test_cleaner.py
+│   ├── test_chunker.py
+│   ├── test_pipeline.py
+│   └── test_api.py
 │
-├── app/                         # UI or API interface
-│   ├── main.py                  # CLI or Streamlit/FastAPI app
-│   └── prompts/                 # Prompt templates for QA/generation
-│       └── qa_prompt.txt
-│
-├── voice/                       # Optional: voice input → text interface
-│   ├── speech_to_text.py        # Whisper or Vosk
-│   └── mic_input.py             # Mic streaming logic
-│
-├── rag_pipeline/                # Full orchestration
-│   ├── load.py                  # Load and preprocess sources
-│   ├── build_index.py           # Embed + store docs
-│   ├── query.py                 # RAG inference logic
-│
-├── tests/                       # Unit and integration tests
-│
-├── requirements.txt             # Python deps
-└── README.md                    # Project intro
+├── cli.py                      # command-line tool for managing ingestion, scraping, etc
+├── pyproject.toml              # preferred build config for packaging
+├── requirements.txt            # fallback for pip users
+├── Dockerfile                  # containerized deploy
+└── README.md
 ```
 
 ## 🚀 Getting Started
+
+The easiest way to run JurisPT is via Docker.
+
+### ▶️ Run with Docker
+
 ```bash
-git clone git@github.com:dfranco-projects/JurisPT.git
+git clone https://github.com/dfranco-projects/JurisPT.git
 cd JurisPT
+docker build -t jurispt .
+docker run -p 8501:8501 jurispt
+```
+
+> Access the app at [http://localhost:8501](http://localhost:8501)
+
+### 🔧 Local Setup (Advanced)
+
+If you prefer running things locally (dev mode):
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 playwright install
-
 ```
 
-## ⚠️ Environment Variables
-Create a `.env` file in the root directory with:
+---
+
+## 🧪 Example Usage
+
+```bash
+# scrape a specific law and reindex
+python cli.py ingest --law-id=123/X/2023
+
+# launch the Streamlit frontend
+streamlit run src/api/main.py
 ```
-OPENAI_API_KEY=your_key_here
+
+---
+
+## ⚙️ Environment Setup
+
+No external API keys required — everything runs locally.
+
+If needed, you can customize defaults (paths, model choice, etc.) in:
+
+```bash
+src/config.py
 ```
+
+---
 
 ## 🔗 Data Sources
+
+Legal documents are pulled directly from trusted government sources:
+
 - [Diário da República](https://dre.pt/)
 - [Portal da Justiça](https://justica.gov.pt/)
 - [Portal da Habitação](https://www.portaldahabitacao.pt/)
 
+---
+
 ## 🤝 Contributing
-Open to collaboration. Reach out if you're passionate about AI + access to justice in Portugal.
+
+Have ideas to expand, optimize, or customize JurisPT? Open issues, submit PRs, or fork freely.
+
+Legal professionals, civic tech hackers, and AI devs all welcome.
