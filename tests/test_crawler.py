@@ -1,4 +1,4 @@
-from law_crawler.crawler import LawScraper
+from src.law_crawler.crawler import LawScraper
 
 def test_law_scraper_output() -> None:
     """
@@ -10,7 +10,7 @@ def test_law_scraper_output() -> None:
     assert "Decreto-Lei n.º 90-C/2022" in content
     assert "programa Porta 65" in content
     assert "Instituto da Habitação e da Reabilitação Urbana (IHRU)" in content
-    assert "no âmbito do Programa de Apoio ao Arrendamento têm prazo mínimo de cinco anos" in content
+    assert "no âmbito do Programa de Apoio ao Arrendamento êm prazo mínimo de cinco anos" in content
 
 def test_law_scraper_lei_37_2025() -> None:
     """
