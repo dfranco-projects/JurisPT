@@ -1,74 +1,89 @@
-from playwright.sync_api import Playwright, sync_playwright, expect
+import re
+import json
+from pathlib import Path
+from playwright.sync_api import Playwright, sync_playwright
 
 class LawScraper:
     def __init__(self) -> None:
         self.url = "https://diariodarepublica.pt"
+        self.browser = None
+        self.context = None
+        self.page = None
 
-    def fetch_law_doc(self, playwright: Playwright, law_id) -> str:
+    def setup(self, playwright: Playwright) -> None:
+        """
+        Sets up the scraper by launching the browser and creating a new context.
+
+        Args:
+            playwright (Playwright): playwright instance.
+        """
+        self.browser = playwright.chromium.launch(headless=True)
+        self.context = self.browser.new_context()
+        self.page = self.context.new_page()
+
+    def close(self) -> None:
+        """
+        Closes the browser and context.
+        """
+        self.browser.close()
+
+    def fetch_law_doc(self, law_id: str) -> str:
             """
             Fetches the law document from the website.
 
             Args:
-                playwright (Playwright): playwright instance.
                 law_id (str): ID of the law to fetch.
 
             Returns:        
                 str: content of the law document.
             """
-            browser = playwright.firefox.launch(headless=False)
-            context = browser.new_context()
-            page = context.new_page()
+            page = self.page
+
+            # open the page
             page.goto(self.url)
 
             # search
             page.get_by_placeholder("O que procura?").fill(law_id)
-            page.get_by_role("button", name="Icon magnifying").click()
 
             # wait for popup and open it
-            # page.locator("#b2-Pesquisa").get_by_text(f"{law_id}", exact=True).click()
-            # page.locator("#b2-b2-b3-l3-240_0-ListItem2").click()
-
-            # result_locator = page.locator("#b2-b2-b3-l3-240_0-ListItem2")
-            # result_locator.wait_for(state="visible", timeout=5000)
-            # result_locator.hover()
-
-            # print("Before click URL:", page.url)
-            # result_locator.click()
-            # page.wait_for_load_state("networkidle")
-            # print("After click URL:", page.url)
-
-
-            #######################
-            
-            with page.expect_popup() as popup_info:
-                page.get_by_role("link", name=f"{law_id} -").click()
-            law_page = popup_info.value
-            law_page.wait_for_load_state()
-
-            ########################
-
+            page.locator("#b2-b2-b3-l3-240_0-ListItem2").first.click()
 
             # wait for the content to load (5 sec)
-            law_page.wait_for_load_state()
-            law_page.wait_for_selector(".texto.int-links", timeout=5_000)
+            page.wait_for_load_state()
+            page.wait_for_selector(".texto.int-links", timeout=5_000)
 
             # get law content
-            content = law_page.locator(".texto.int-links").inner_text()
-
-            # close the browser
-            browser.close()
+            content = page.locator(".texto.int-links").inner_text()
 
             return content
     
-    def run_scraper(self, law_id) -> None:
+    def run_scraper(self, law_ids: list[str]) -> list[dict]:
         """
-        Runs the scraper to fetch the law document.
+        Runs the scraper for the law IDs on the metadata file.
+
+        Args:
+            law_ids (list[str]): List of law IDs to fetch.
+
+        Returns:
+            list[dict]: List of dictionaries containing law ID and content.
+        """
+        with sync_playwright() as playwright:
+            self.setup(playwright)
+            results = [self.fetch_law_doc(law_id) for law_id in law_ids]
+            self.close()
+            return results
+    
+    def run_test_scraper(self, law_id) -> None:
+        """
+        Test the test scraper ability to fetch the law document.
 
         Args:
             law_id (str): ID of the law to fetch.
         """
         with sync_playwright() as playwright:
-            content = self.fetch_law_doc(playwright, law_id)
+            self.setup(playwright)
+            content = self.fetch_law_doc(law_id)
+            self.close()
             return content
         
 if __name__ == "__main__":
