@@ -1,22 +1,22 @@
-from src.law_crawler.crawler import LawScraper
+from src.legal_crawler.crawler import LawCrawler
 
 def test_law_scraper_output() -> None:
     """
     Test the output of the law scraper for Decreto-Lei n.º 90-C/2022.
     """
-    scraper = LawScraper()
+    scraper = LawCrawler()
     content = scraper.run_test_scraper("Decreto-Lei n.º 90-C/2022")
 
     assert "Decreto-Lei n.º 90-C/2022" in content
     assert "programa Porta 65" in content
     assert "Instituto da Habitação e da Reabilitação Urbana (IHRU)" in content
-    assert "no âmbito do Programa de Apoio ao Arrendamento êm prazo mínimo de cinco anos" in content
+    assert "no âmbito do Programa de Apoio ao Arrendamento têm prazo mínimo de cinco anos" in content
 
 def test_law_scraper_lei_37_2025() -> None:
     """
     Test the output of the law scraper for Lei n.º 37/2025.
     """
-    scraper = LawScraper()
+    scraper = LawCrawler()
     content = scraper.run_test_scraper("Lei n.º 37/2025")
 
     assert "Lei n.º 37/2025" in content
@@ -27,7 +27,7 @@ def test_law_scraper_dl_446_85() -> None:
     """
     Test the output of the law scraper for Decreto-Lei n.º 446/85.
     """
-    scraper = LawScraper()
+    scraper = LawCrawler()
     content = scraper.run_test_scraper("Decreto-Lei n.º 446/85")
 
     assert "Decreto-Lei n.º 446/85" in content

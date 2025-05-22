@@ -72,7 +72,6 @@ JurisPT/
 │   └── test_api.py
 │
 ├── cli.py                      # command-line tool for managing ingestion, scraping, etc
-├── pyproject.toml              # preferred build config for packaging
 ├── requirements.txt            # fallback for pip users
 ├── Dockerfile                  # containerized deploy
 └── README.md
