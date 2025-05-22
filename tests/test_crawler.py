@@ -1,4 +1,4 @@
-from src.law_crawler.crawler import LawScraper
+from law_crawler.crawler import LawScraper
 
 def test_law_scraper_output() -> None:
     """
