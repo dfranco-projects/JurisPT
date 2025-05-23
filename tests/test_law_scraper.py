@@ -1,10 +1,10 @@
-from src.legal_crawler.crawler import LawCrawler
+from webscraping.law_scraper import LawScraper
 
-def test_law_scraper_output() -> None:
+def test_law_scraper_dl_90_2022() -> None:
     """
     Test the output of the law scraper for Decreto-Lei n.º 90-C/2022.
     """
-    scraper = LawCrawler()
+    scraper = LawScraper()
     content, _ = scraper.run_test_scraper("Decreto-Lei n.º 90-C/2022")
 
     assert "Decreto-Lei n.º 90-C/2022" in content
@@ -16,7 +16,7 @@ def test_law_scraper_lei_37_2025() -> None:
     """
     Test the output of the law scraper for Lei n.º 37/2025.
     """
-    scraper = LawCrawler()
+    scraper = LawScraper()
     content, _ = scraper.run_test_scraper("Lei n.º 37/2025")
 
     assert "Lei n.º 37/2025" in content
@@ -27,7 +27,7 @@ def test_law_scraper_dl_446_85() -> None:
     """
     Test the output of the law scraper for Decreto-Lei n.º 446/85.
     """
-    scraper = LawCrawler()
+    scraper = LawScraper()
     content, _ = scraper.run_test_scraper("Decreto-Lei n.º 446/85")
 
     assert "Decreto-Lei n.º 446/85" in content
