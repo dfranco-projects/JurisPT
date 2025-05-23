@@ -25,7 +25,6 @@ No hidden services. No external APIs. Fully transparent.
 * **tiktoken** for efficient text handling
 * **Sentence Transformers** for text embeddings
 * **FAISS** for fast, local vector search
-  *(Can swap in cloud options like Pinecone or Chroma.)*
 * **Pandas** for data handling
 * **Pytest** for tests
 * **Docker** for easy setup and deployment
