@@ -1,84 +1,102 @@
-{
-    "laws": [
-        {
-            "law_id": "Lei n.º 6/2006",
-            "subject": "Aprova o Novo Regime do Arrendamento Urbano (NRAU)."
-        },
-        {
-            "law_id": "Decreto-Lei n.º 90-C/2022",
-            "subject": "Altera os programas Porta 65 e Arrendamento Acessível."
-        },
-        {
-            "law_id": "Lei n.º 31/2012",
-            "subject": "Revisão do regime jurídico do arrendamento urbano (alterações ao NRAU)."
-        },
-        {
-            "law_id": "Decreto-Lei n.º 156/2005",
-            "subject": "Cria o Livro de Reclamações, físico e eletrónico."
-        },
-        {
-            "law_id": "Lei n.º 24/96",
-            "subject": "Define os direitos dos consumidores e os deveres das entidades prestadoras de bens e serviços."
-        },
-        {
-            "law_id": "Decreto-Lei n.º 446/85",
-            "subject": "Regula as cláusulas contratuais gerais nos contratos com consumidores."
-        },
-        {
-            "law_id": "Lei n.º 67/98",
-            "subject": "Transpõe a Diretiva da UE sobre proteção de dados pessoais (revogada, mas importante historicamente)."
-        },
-        {
-            "law_id": "Lei n.º 58/2019",
-            "subject": "Assegura a execução do Regulamento Geral sobre a Proteção de Dados (RGPD) em Portugal."
-        },
-        {
-            "law_id": "Lei n.º 93/2021",
-            "subject": "Aprova a Carta Portuguesa dos Direitos Humanos na Era Digital."
-        },
-        {
-            "law_id": "Lei n.º 102/2009",
-            "subject": "Regime jurídico da promoção da segurança e saúde no trabalho."
-        },
-        {
-            "law_id": "Lei n.º 7/2009",
-            "subject": "Aprova a versão consolidada do Código do Trabalho."
-        },
-        {
-            "law_id": "Lei n.º 105/2009",
-            "subject": "Regime de organização do tempo de trabalho."
-        },
-        {
-            "law_id": "Decreto-Lei n.º 91/2009",
-            "subject": "Aprova o regime jurídico da formação profissional no âmbito do Código do Trabalho."
-        },
-        {
-            "law_id": "Lei n.º 110/2009",
-            "subject": "Aprova o Código dos Regimes Contributivos do Sistema Previdencial de Segurança Social."
-        },
-        {
-            "law_id": "Decreto-Lei n.º 72/2008",
-            "subject": "Regime jurídico do contrato de seguro."
-        },
-        {
-            "law_id": "Lei n.º 147/2015",
-            "subject": "Regime jurídico da supervisão de seguros e fundos de pensões."
-        },
-        {
-            "law_id": "Lei n.º 83/2017",
-            "subject": "Medidas de combate ao branqueamento de capitais e ao financiamento do terrorismo."
-        },
-        {
-            "law_id": "Lei n.º 46/2006",
-            "subject": "Proíbe e pune a discriminação com base na deficiência e na existência de risco agravado de saúde."
-        },
-        {
-            "law_id": "Decreto-Lei n.º 176/2006",
-            "subject": "Regime jurídico dos medicamentos de uso humano."
-        },
-        {
-            "law_id": "Lei n.º 38/2004",
-            "subject": "Define o regime jurídico da prevenção da deficiência e habilitação e reabilitação das pessoas com deficiência."
-        }
-    ]
-}
+[
+    {
+        "law_id": "Lei n.º 6/2006",
+        "subject": "Aprova o Novo Regime do Arrendamento Urbano (NRAU).",
+        "active": true
+    },
+    {
+        "law_id": "Decreto-Lei n.º 90-C/2022",
+        "subject": "Altera os programas Porta 65 e Arrendamento Acessível.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 31/2012",
+        "subject": "Revisão do regime jurídico do arrendamento urbano (alterações ao NRAU).",
+        "active": true
+    },
+    {
+        "law_id": "Decreto-Lei n.º 156/2005",
+        "subject": "Cria o Livro de Reclamações, físico e eletrónico.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 24/96",
+        "subject": "Define os direitos dos consumidores e os deveres das entidades prestadoras de bens e serviços.",
+        "active": true
+    },
+    {
+        "law_id": "Decreto-Lei n.º 446/85",
+        "subject": "Regula as cláusulas contratuais gerais nos contratos com consumidores.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 67/98",
+        "subject": "Transpõe a Diretiva da UE sobre proteção de dados pessoais (revogada, mas importante historicamente).",
+        "active": false
+    },
+    {
+        "law_id": "Lei n.º 58/2019",
+        "subject": "Assegura a execução do Regulamento Geral sobre a Proteção de Dados (RGPD) em Portugal.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 93/2021",
+        "subject": "Aprova a Carta Portuguesa dos Direitos Humanos na Era Digital.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 102/2009",
+        "subject": "Regime jurídico da promoção da segurança e saúde no trabalho.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 7/2009",
+        "subject": "Aprova a versão consolidada do Código do Trabalho.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 105/2009",
+        "subject": "Regime de organização do tempo de trabalho.",
+        "active": true
+    },
+    {
+        "law_id": "Decreto-Lei n.º 91/2009",
+        "subject": "Aprova o regime jurídico da formação profissional no âmbito do Código do Trabalho.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 110/2009",
+        "subject": "Aprova o Código dos Regimes Contributivos do Sistema Previdencial de Segurança Social.",
+        "active": true
+    },
+    {
+        "law_id": "Decreto-Lei n.º 72/2008",
+        "subject": "Regime jurídico do contrato de seguro.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 147/2015",
+        "subject": "Regime jurídico da supervisão de seguros e fundos de pensões.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 83/2017",
+        "subject": "Medidas de combate ao branqueamento de capitais e ao financiamento do terrorismo.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 46/2006",
+        "subject": "Proíbe e pune a discriminação com base na deficiência e na existência de risco agravado de saúde.",
+        "active": true
+    },
+    {
+        "law_id": "Decreto-Lei n.º 176/2006",
+        "subject": "Regime jurídico dos medicamentos de uso humano.",
+        "active": true
+    },
+    {
+        "law_id": "Lei n.º 38/2004",
+        "subject": "Define o regime jurídico da prevenção da deficiência e habilitação e reabilitação das pessoas com deficiência.",
+        "active": true
+    }
+]
