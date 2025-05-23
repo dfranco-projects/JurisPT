@@ -33,9 +33,9 @@ Built for transparency, customization, and accessibility.
 ```bash
 JurisPT/
 │
-├── src/                         # root package
-│   ├── legal_crawler/          # fetch laws from public sources
-│   │   └── crawler.py
+├── src/                       # root package
+│   ├── legalscraper/          # gets laws documents from public sources
+│   │   └── law_scraper.py
 │   │
 │   ├── processing/             # clean, normalize, chunk legal text
 │   │   ├── cleaner.py
@@ -65,7 +65,8 @@ JurisPT/
 │   └── metadata/               # core index of laws to scrape
 │
 ├── tests/                      # unit + integration tests
-│   ├── test_crawler.py
+│   ├── test_scraper.py
+│   ├── test_law_revoker.py
 │   ├── test_cleaner.py
 │   ├── test_chunker.py
 │   ├── test_pipeline.py
