@@ -53,7 +53,7 @@ JurisPT runs entirely on your machine. No hidden APIs. No internet dependency. F
 ```bash
 JurisPT/
 ├── src/
-│   ├── legalscraper/    # download and parse laws
+│   ├── webscraping/     # download and parse laws
 │   ├── processing/      # clean and split text
 │   ├── vectorization/   # embed text and search
 │   ├── ingestion/       # pipeline orchestration
