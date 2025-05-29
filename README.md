@@ -53,19 +53,24 @@ JurisPT runs entirely on your machine. No hidden APIs. No internet dependency. F
 ```bash
 JurisPT/
 ├── src/
-│   ├── webscraping/     # download and parse laws
-│   ├── processing/      # clean and split text
-│   ├── vectorization/   # embed text and search
-│   ├── ingestion/       # pipeline orchestration
-│   ├── prompts/         # prompt templates for queries
-│   ├── api/             # Streamlit app files
-│   └── config.py        # configuration settings
-├── corpus/              # raw and processed legal texts
-├── tests/               # unit and integration tests
-├── cli.py               # command-line interface
-├── requirements.txt     # Python dependencies
-├── Dockerfile           # Docker build instructions
-└── README.md            # this file
+│   ├── webscraping/       # download and parse laws from public sources
+│   ├── processing/        # clean, normalize, chunk, and extract info from text
+│   ├── vectorization/     # embed, store, and search text chunks (loads embedding models)
+│   ├── ingestion/         # orchestrate pipeline steps (scrape → process → index)
+│   ├── prompts/           # prompt templates for llm tasks (qa, summarization, etc.)
+│   ├── api/               # backend logic: loads prompts, builds and engineers llm queries, loads llm models
+│   ├── frontend/          # streamlit app files (ui components, layout, assets)
+│   ├── voicetotext/       # offline speech-to-text modules (whisper, vosk, etc.)
+│   └── config.py          # configuration settings and environment variables
+├── corpus/                # collected legal texts and processed data
+│   ├── raw/               # raw scraped text per law
+│   ├── clean/             # cleaned and chunked text
+│   └── metadata/          # law and chunk metadata files
+├── tests/                 # unit and integration tests
+├── cli.py               # command-line interface for managing pipeline
+├── requirements.txt     # python dependencies
+├── Dockerfile           # docker build instructions
+└── README.md            # project documentation
 ```
 
 ---
