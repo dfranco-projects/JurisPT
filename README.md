@@ -1,19 +1,20 @@
 # 🇵🇹 JurisPT
 
-**JurisPT** is an open‑source legal assistant for Portugal. Search and explore real laws—from housing to labor rights—using a modern retrieval pipeline that runs entirely on your machine.
-No hidden services. No external APIs. Fully transparent.
+**JurisPT** is an open-source legal assistant built for Portugal. It helps users **understand laws**, **write juridical-style texts** (like formal emails or resignation letters), and **navigate small legal problems**—from housing issues to labor rights. All without relying on external services.
+
+JurisPT runs entirely on your machine. No hidden APIs. No internet dependency. Fully transparent and under your control.
 
 ---
 
 ## 🧠 What JurisPT Does
 
-* **Download** legal texts from [Diário da República](https://dre.pt/) automatically
-* **Support** inquiries in Portuguese 🇵🇹 and English 🇬🇧
-* **Clean and split** long documents for fast, reliable search
-* **Semantic search** using advanced text embeddings
-* **Spoken queries**: ask questions by speaking (all processing is local)
-* **Modular design**: easily add new laws, swap models, or extend features
-* **Keep content fresh**: re‑scrape and re‑index updated laws anytime
+* **Download** legal texts from [Diário da República](https://diariodarepublica.pt/dr/home) automatically  
+* **Support** inquiries in Portuguese 🇵🇹 and English 🇬🇧  
+* **Clean and split** long documents for fast, reliable search  
+* **Semantic search** using advanced text embeddings  
+* **Spoken queries**: ask questions by speaking (all processing is local)  
+* **Modular design**: easily add new laws, swap models, or extend features  
+* **Keep content fresh**: re-scrape and re-index updated laws anytime  
 
 ---
 
@@ -31,9 +32,9 @@ No hidden services. No external APIs. Fully transparent.
 
 **Optional components**:
 
-* **spaCy** for extra text processing and named‑entity recognition
+* **spaCy** for extra text processing and named-entity recognition
 * **LangChain** for managing the retrieval pipeline
-* **Whisper or Vosk** for offline speech‑to‑text
+* **Whisper or Vosk** for offline speech-to-text
 
 > All processing and search happen locally—no external services needed.
 
@@ -41,10 +42,10 @@ No hidden services. No external APIs. Fully transparent.
 
 ## ⚡ Why Choose JurisPT
 
-* **Open source:** review and modify every part
-* **Customizable:** plug in new data sources or tools
-* **Transparent:** no hidden logic or vendor lock‑in
-* **Efficient updates:** refresh the index instead of retraining
+* **Open source:** review and modify every part  
+* **Customizable:** plug in new data sources or tools  
+* **Transparent:** no hidden logic or vendor lock-in  
+* **Efficient updates:** refresh the index instead of retraining  
 
 ---
 
@@ -62,7 +63,7 @@ JurisPT/
 │   └── config.py        # configuration settings
 ├── corpus/              # raw and processed legal texts
 ├── tests/               # unit and integration tests
-├── cli.py               # command‑line interface
+├── cli.py               # command-line interface
 ├── requirements.txt     # Python dependencies
 ├── Dockerfile           # Docker build instructions
 └── README.md            # this file
@@ -108,7 +109,7 @@ streamlit run src/api/main.py
 
 ## 🔗 Data Source
 
-* Diário da República: [https://dre.pt/](https://dre.pt/)
+* Diário da República: [https://diariodarepublica.pt/dr/home](https://diariodarepublica.pt/dr/home)
 
 ---
 
