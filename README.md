@@ -1,4 +1,4 @@
-# 🇵🇹 JurisPT
+# 🇵🇹 JurisPT (WIP)
 
 **JurisPT** is an open-source legal assistant built for Portugal. It helps users **understand laws**, **write juridical-style texts** (like formal emails or resignation letters), and **navigate small legal problems**—from housing issues to labor rights. All without relying on external services.
 
