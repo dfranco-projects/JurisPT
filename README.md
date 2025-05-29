@@ -21,20 +21,19 @@ JurisPT runs entirely on your machine. No hidden APIs. No internet dependency. F
 ## 🛠️ Technology Stack
 
 * **Python 3.12+**
-* **Playwright** for fast, reliable scraping
-* **Streamlit** for a simple web interface
-* **tiktoken** for efficient text handling
-* **Sentence Transformers** for text embeddings
-* **FAISS** for fast, local vector search
-* **Pandas** for data handling
-* **Pytest** for tests
-* **Docker** for easy setup and deployment
+* **Playwright** – fast, reliable scraping
+* **Streamlit** – intuitive web interface for users
+* **tiktoken** – efficient text tokenization
+* **Sentence Transformers** – high-quality local text embeddings
+* **FAISS** – fast, local vector search for semantic retrieval
+* **Pandas** – robust data handling and transformation
+* **spaCy** – named-entity recognition and text preprocessing
+* **LangChain** – orchestration of the RAG pipeline, prompt routing, and tool usage
+* **Hugging Face Transformers** – local LLM access and fine-tuning
+* **Whisper** – offline speech-to-text for spoken legal queries
+* **Pytest** – unit and integration testing
+* **Docker** – reproducible environments and deployment
 
-**Optional components**:
-
-* **spaCy** for extra text processing and named-entity recognition
-* **LangChain** for managing the retrieval pipeline
-* **Whisper or Vosk** for offline speech-to-text
 
 > All processing and search happen locally—no external services needed.
 
