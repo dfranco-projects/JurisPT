@@ -67,10 +67,10 @@ JurisPT/
 │   ├── clean/             # cleaned and chunked text
 │   └── metadata/          # law and chunk metadata files
 ├── tests/                 # unit and integration tests
-├── cli.py               # command-line interface for managing pipeline
-├── requirements.txt     # python dependencies
-├── Dockerfile           # docker build instructions
-└── README.md            # project documentation
+├── cli.py                 # command-line interface for managing pipeline
+├── requirements.txt       # python dependencies
+├── Dockerfile             # docker build instructions
+└── README.md              # project documentation
 ```
 
 ---
